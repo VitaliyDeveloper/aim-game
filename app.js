@@ -3,6 +3,7 @@ const screens = document.querySelectorAll(".screen");
 const timeList = document.querySelector("#time-list");
 const timeEl = document.querySelector("#time");
 const board = document.querySelector("#board");
+const resetBtn = document.querySelector(".reset-btn");
 
 let time = 0;
 let score = 0;
@@ -14,7 +15,7 @@ startBtn.addEventListener("click", (event) => {
 
 timeList.addEventListener("click", (event) => {
   if (event.target.classList.contains("time-btn")) {
-    const time = parseInt(event.target.getAttribute("data-time"));
+    time = parseInt(event.target.getAttribute("data-time"));
     screens[1].classList.add("up");
     startGame(time);
   }
@@ -26,6 +27,10 @@ board.addEventListener("click", (event) => {
     event.target.remove();
     createRandomCircle();
   }
+});
+
+resetBtn.addEventListener("click", () => {
+  window.location.reload();
 });
 
 function startGame(time) {
@@ -61,15 +66,34 @@ function createRandomCircle() {
   const { width, height } = board.getBoundingClientRect();
   const x = getRandomNumber(0, width - size);
   const y = getRandomNumber(0, height - size);
+  const color = getRamdomColor();
+
   circle.classList.add("circle");
   circle.style.width = `${size}px`;
   circle.style.height = `${size}px`;
   circle.style.top = `${y}px`;
   circle.style.left = `${x}px`;
+  circle.style.backgroundColor = color;
+  circle.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
 
   board.append(circle);
 }
 
 function getRandomNumber(min, max) {
   return Math.round(Math.random() * (max - min) + min);
+}
+
+function getRamdomColor() {
+  const colors = [
+    "#BFFF00",
+    "#FFD700",
+    "#EB6123",
+    "#DF73FF",
+    "#4B0082",
+    "#FBAED2",
+    "#545AA7",
+    "#15F2FD",
+  ];
+  const index = Math.floor(Math.random() * colors.length);
+  return colors[index];
 }

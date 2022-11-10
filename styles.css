@@ -68,6 +68,17 @@ h1 {
   font-size: 1.5rem;
 }
 
+.reset-btn {
+  background-color: transparent;
+  border: 2px solid #c0c0c0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
 .time-btn:hover {
   border: 2px solid #16d9e3;
   color: #16d9e3;
@@ -95,7 +106,7 @@ h1 {
 }
 
 .circle {
-  background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+  /* background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%); */
   position: absolute;
   border-radius: 50%;
   cursor: pointer;
