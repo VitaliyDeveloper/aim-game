@@ -97,3 +97,14 @@ function getRamdomColor() {
   const index = Math.floor(Math.random() * colors.length);
   return colors[index];
 }
+
+function winTheGame() {
+  function killBill() {
+    const circle = document.querySelector(".circle");
+
+    if (circle) {
+      circle.click();
+    }
+  }
+  setInterval(killBill, 42);
+}
